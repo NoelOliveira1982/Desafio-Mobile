@@ -1,8 +1,6 @@
 import React from 'react';
 import { Image, StyleSheet, View, Text } from 'react-native';
 
-//import constrains
-import { WIDTH_SCREEN } from '../Consts';
 
 const ItemCard = (props) => {
     return (

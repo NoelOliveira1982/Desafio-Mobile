@@ -5,13 +5,14 @@ import LinearGradient from 'react-native-linear-gradient';
 //import constrains
 import { SIZE_ICON } from '../Consts';
 
-const ToolBar = ({ isMainScreen = false }) => {
+const ToolBar = ({ isMainScreen = false, isDescriptionScreen = false }) => {
     return (
         <View>
             <StatusBar />
             <LinearGradient colors={['#A208EE', '#7A1ED5', '#6D52E1']} style={Styles.gradient} >
                 <Icon name={isMainScreen === true ? 'logout' : 'keyboard-arrow-left'} size={SIZE_ICON} />
                 <Text style={Styles.textName}>Jorge Alberto</Text>
+                {isDescriptionScreen && <Icon name='mode-edit' size={SIZE_ICON} />}
                 <Icon name='add' size={SIZE_ICON} />
             </LinearGradient>
         </View>
