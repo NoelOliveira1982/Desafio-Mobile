@@ -7,8 +7,8 @@ const ItemCard = (props) => {
         <View style={Styles.card}>
             <Image source={props.url} style={Styles.image} />
             <View style={Styles.description}>
-                <Text style={Styles.title}>Teste</Text>
-                <Text style={Styles.title}>04/07/2003</Text>
+                <Text style={Styles.title}>{props.name}</Text>
+                <Text style={Styles.title}>{props.date}</Text>
             </View>
         </View>
     );

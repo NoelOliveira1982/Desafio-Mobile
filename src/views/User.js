@@ -13,8 +13,8 @@ const User = () => {
     return (
         <SafeAreaView style={{ backgroundColor: 'black', height: HEIGHT_SCREEN }}>
             <ToolBar isMainScreen={true} />
-            <ItemCard url={test} />
-            <ItemCard url={logo} />
+            <ItemCard url={test} name='Jorge Alberto' date='04/07/2003' />
+            <ItemCard url={logo} name='Teste' date='10/10/2010' />
         </SafeAreaView>
     );
 };

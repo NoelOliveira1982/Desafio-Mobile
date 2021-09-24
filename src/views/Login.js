@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SafeAreaView, Text, Dimensions, Image, StyleSheet, View, TextInput, TouchableOpacity } from 'react-native';
+import { SafeAreaView, Text, Image, StyleSheet, View, TextInput, TouchableOpacity } from 'react-native';
 import LinearGradient from "react-native-linear-gradient";
 
 //import images
