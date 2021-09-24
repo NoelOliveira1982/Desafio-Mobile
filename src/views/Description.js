@@ -4,7 +4,7 @@ import ToolBar from "../components/ToolBar";
 import DescriptionCard from "../components/DescriptionCard";
 
 //import constrains
-import { HEIGHT_SCREEN } from "../Consts";
+import { HEIGHT_SCREEN } from "../Common";
 //import test
 import Logo from '../../assets/images/logo-full.png';
 import Test from '../../assets/images/test.jpg';

@@ -5,7 +5,7 @@ import { Image, StyleSheet, View, Text } from 'react-native';
 const ItemCard = (props) => {
     return (
         <View style={Styles.card}>
-            <Image source={props.url} style={Styles.image} />
+            <Image source={props.url} style={Styles.image} resizeMode='contain' />
             <View style={Styles.description}>
                 <Text style={Styles.title}>{props.name}</Text>
                 <Text style={Styles.title}>{props.date}</Text>

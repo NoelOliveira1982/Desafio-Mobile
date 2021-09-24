@@ -1,16 +1,32 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { SafeAreaView, Text, Image, StyleSheet, View, TextInput, TouchableOpacity } from 'react-native';
 import LinearGradient from "react-native-linear-gradient";
 
 //import images
 import logo from '../../assets/images/logo-full.png';
+import { server, showError } from "../Common";
 //import constrains
-import { HEIGHT_SCREEN } from "../Consts";
+import { HEIGHT_SCREEN } from "../Common";
 
-const Login = () => {
+const Login = (props) => {
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+
+    const signin = async () => {
+        try {
+            const res = await axios.post(`${server}/auth/login`, {
+                email: email,
+                password: password
+            });
+
+            axios.defaults.headers.common['Authorization'] = `bearer ${res.data.token}`;
+            props.navigation.navigate('Home');
+        } catch (e) {
+            showError(e);
+        }
+    };
 
     return (
         <SafeAreaView>
@@ -27,7 +43,7 @@ const Login = () => {
                     <TextInput placeholder='Insira sua senha' value={password}
                         onChangeText={password => setPassword(password)} style={Styles.textInput} secureTextEntry={true} />
                     <View style={{ alignItems: 'center', width: '100%' }}>
-                        <TouchableOpacity style={Styles.buttonAdmit}>
+                        <TouchableOpacity style={Styles.buttonAdmit} onPress={signin}>
                             <Text>ENTRAR</Text>
                         </TouchableOpacity>
                     </View>

@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, StatusBar } from 'react-native';
 import { Icon } from 'react-native-elements/dist/icons/Icon';
 import LinearGradient from 'react-native-linear-gradient';
 //import constrains
-import { SIZE_ICON } from '../Consts';
+import { SIZE_ICON } from '../Common';
 
 const ToolBar = ({ isMainScreen = false, isDescriptionScreen = false }) => {
     return (
