@@ -2,8 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, StatusBar } from 'react-native';
 import { Icon } from 'react-native-elements/dist/icons/Icon';
 import LinearGradient from 'react-native-linear-gradient';
-
-const SIZE_ICON = 40
+//import constrains
+import { SIZE_ICON } from '../Consts';
 
 const ToolBar = ({ isMainScreen = false }) => {
     return (
