@@ -1,16 +1,38 @@
+import axios from 'axios';
 import React from 'react';
 import { View, Text, StyleSheet, StatusBar } from 'react-native';
 import { Icon } from 'react-native-elements/dist/icons/Icon';
 import LinearGradient from 'react-native-linear-gradient';
-//import constrains
-import { SIZE_ICON } from '../Common';
+import { showError, SIZE_ICON } from '../Common';
 
-const ToolBar = ({ isMainScreen = false, isDescriptionScreen = false }) => {
+const ToolBar = ({ isMainScreen = false, isDescriptionScreen = false, navigation }) => {
+
+    const logout = () => {
+        try {
+            delete axios.defaults.headers.common['Authorization'];
+            navigation.navigate('Login');
+        } catch (e) {
+            showError(e);
+        }
+    };
+
+    const goBack = () => {
+        navigation.navigate('Home');
+    };
+
+    const decideFunction = () => {
+        if (isMainScreen) {
+            logout();
+        } else {
+            goBack();
+        }
+    };
+
     return (
         <View>
             <StatusBar />
             <LinearGradient colors={['#A208EE', '#7A1ED5', '#6D52E1']} style={Styles.gradient} >
-                <Icon name={isMainScreen === true ? 'logout' : 'keyboard-arrow-left'} size={SIZE_ICON} />
+                <Icon name={isMainScreen === true ? 'logout' : 'keyboard-arrow-left'} size={SIZE_ICON} onPress={decideFunction} />
                 <Text style={Styles.textName}>Jorge Alberto</Text>
                 {isDescriptionScreen && <Icon name='mode-edit' size={SIZE_ICON} />}
                 <Icon name='add' size={SIZE_ICON} />

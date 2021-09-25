@@ -17,7 +17,7 @@ const MainRoutes = {
     Description: {
         name: 'Description',
         screen: Description
-    }
+    },
 }
 
 const MainNavigator = createSwitchNavigator(MainRoutes, {

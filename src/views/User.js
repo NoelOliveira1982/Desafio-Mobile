@@ -1,26 +1,36 @@
-import React from "react";
-import { SafeAreaView, ScrollView, Text, View } from 'react-native';
+import React, { useEffect, useState } from "react";
+import { SafeAreaView, ScrollView } from 'react-native';
 import ItemCard from "../components/ItemCard";
 import ToolBar from '../components/ToolBar';
+import { HEIGHT_SCREEN, SERVER, showError } from "../Common";
+import axios from "axios";
 
-//import images
-import test from '../../assets/images/test.jpg';
-import logo from '../../assets/images/logo-full.png';
-//import constrains
-import { HEIGHT_SCREEN } from "../Common";
+const User = (props) => {
 
-const User = () => {
+    const [data, setData] = useState([]);
+
+    const getFiles = async () => {
+        try {
+            const data = await axios.get(`${SERVER}/index/aluno/${axios.defaults.data}`);
+            return data.data.data;
+        } catch (e) {
+            showError(e);
+        }
+    };
+
+    useEffect(() => {
+        async function loadFiles() {
+            const data = await getFiles();
+            setData(data);
+        }
+        loadFiles();
+    }, []);
+
     return (
         <SafeAreaView style={{ backgroundColor: 'black', height: HEIGHT_SCREEN, flex: 1 }}>
-            <ToolBar isMainScreen={true} />
+            <ToolBar isMainScreen={true} navigation={props.navigation} />
             <ScrollView>
-                <ItemCard url={test} name='Jorge Alberto' date='04/07/2003' />
-                <ItemCard url={logo} name='Teste' date='10/10/2010' />
-                <ItemCard url={logo} name='Teste' date='10/10/2010' />
-                <ItemCard url={logo} name='Teste' date='10/10/2010' />
-                <ItemCard url={logo} name='Teste' date='10/10/2010' />
-                <ItemCard url={logo} name='Teste' date='10/10/2010' />
-                <ItemCard url={logo} name='Teste' date='10/10/2010' />
+                {data.map(({ id, numero, created_at }) => <ItemCard name={numero} date={created_at} id={id} navigation={props.navigation} key={id} />)}
             </ScrollView>
         </SafeAreaView>
     );

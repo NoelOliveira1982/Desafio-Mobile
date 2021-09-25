@@ -1,28 +1,34 @@
+import axios from 'axios';
 import React from 'react';
-import { Image, StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 
 const ItemCard = (props) => {
+
+    const goToDescription = () => {
+        axios.defaults.params = props.id;
+        props.navigation.navigate('Description');
+    };
+
     return (
-        <View style={Styles.card}>
-            <Image source={props.url} style={Styles.image} resizeMode='contain' />
-            <View style={Styles.description}>
-                <Text style={Styles.title}>{props.name}</Text>
-                <Text style={Styles.title}>{props.date}</Text>
+        <TouchableOpacity onPress={goToDescription} >
+            <View style={Styles.card}>
+                <Text style={Styles.title}>Número: {props.name}</Text>
+                <Text style={Styles.title}>Data de Envio: {props.date}</Text>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 };
 
 const Styles = StyleSheet.create({
     card: {
-        height: 258,
+        height: 100,
         width: '90%',
         marginLeft: 21,
         marginRight: 21,
         marginTop: 25,
-        backgroundColor: 'white',
-        justifyContent: 'flex-end'
+        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+        borderRadius: 15,
     },
     image: {
         width: '100%',
@@ -31,20 +37,12 @@ const Styles = StyleSheet.create({
     },
     title: {
         fontFamily: 'Roboto Bold',
-        fontSize: 26,
-        color: 'white',
-        paddingTop: 10,
-        paddingBottom: 5,
-        padding: 20,
+        fontSize: 22,
+        color: 'black',
+        paddingTop: 5,
+        paddingHorizontal: 20,
 
     },
-    description: {
-        position: 'absolute',
-        backgroundColor: 'rgba(0, 0, 0, 0.4)',
-        width: '100%',
-        flexDirection: 'row',
-        justifyContent: 'space-between'
-    }
 });
 
 export default ItemCard;

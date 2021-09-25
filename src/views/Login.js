@@ -3,11 +3,8 @@ import React, { useState } from "react";
 import { SafeAreaView, Text, Image, StyleSheet, View, TextInput, TouchableOpacity } from 'react-native';
 import LinearGradient from "react-native-linear-gradient";
 
-//import images
 import logo from '../../assets/images/logo-full.png';
-import { server, showError } from "../Common";
-//import constrains
-import { HEIGHT_SCREEN } from "../Common";
+import { SERVER, showError, HEIGHT_SCREEN } from "../Common";
 
 const Login = (props) => {
 
@@ -16,12 +13,13 @@ const Login = (props) => {
 
     const signin = async () => {
         try {
-            const res = await axios.post(`${server}/auth/login`, {
+            const res = await axios.post(`${SERVER}/auth/login`, {
                 email: email,
                 password: password
             });
 
-            axios.defaults.headers.common['Authorization'] = `bearer ${res.data.token}`;
+            axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.access_token}`;
+            axios.defaults.data = res.data.aluno_id;
             props.navigation.navigate('Home');
         } catch (e) {
             showError(e);
