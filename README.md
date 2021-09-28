@@ -7,6 +7,10 @@ React Native
 ## Linguagens
 JavaScript
 
+## Uso
+    npm install
+    npm run-android
+
 ## Dependências
     "@react-native-async-storage/async-storage": "^1.15.8",
     "@react-native-community/datetimepicker": "^3.5.2",
