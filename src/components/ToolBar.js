@@ -3,10 +3,10 @@ import React from 'react';
 import { View, Text, StyleSheet, StatusBar } from 'react-native';
 import { Icon } from 'react-native-elements/dist/icons/Icon';
 import LinearGradient from 'react-native-linear-gradient';
-import { SERVER, showError, showSucess, SIZE_ICON } from '../Common';
+import { SERVER, showError, showSucess, SIZE_ICON, TITLE_FONT } from '../Common';
 import DocumentPicker from 'react-native-document-picker';
 
-const ToolBar = ({ isMainScreen = false, navigation }) => {
+const ToolBar = ({ isMainScreen = false, isAdminScreen = false, navigation }) => {
 
     const data = new FormData();
 
@@ -59,10 +59,10 @@ const ToolBar = ({ isMainScreen = false, navigation }) => {
     return (
         <View>
             <StatusBar />
-            <LinearGradient colors={['#A208EE', '#7A1ED5', '#6D52E1']} style={Styles.gradient} >
+            <LinearGradient colors={['#A208EE', '#7A1ED5', '#6D52E1']} style={isAdminScreen ? { ...Styles.gradient, ...Styles.gradientAdmin } : Styles.gradient} >
                 <Icon name={isMainScreen === true ? 'logout' : 'keyboard-arrow-left'} size={SIZE_ICON} onPress={decideFunction} />
-                <Text style={Styles.textName}>Jorge Alberto</Text>
-                <Icon name='add' size={SIZE_ICON} onPress={addFiles} />
+                <Text style={Styles.textName}>Pontue</Text>
+                {isAdminScreen != true && <Icon name='add' size={SIZE_ICON} onPress={addFiles} />}
             </LinearGradient>
         </View>
     );
@@ -71,12 +71,16 @@ const ToolBar = ({ isMainScreen = false, navigation }) => {
 const Styles = StyleSheet.create({
     textName: {
         fontFamily: 'Roboto Bold',
-        fontSize: 26,
+        fontSize: TITLE_FONT,
     },
     gradient: {
         justifyContent: 'space-around',
         padding: 18,
         flexDirection: 'row'
+    },
+    gradientAdmin: {
+        justifyContent: 'space-between',
+        paddingHorizontal: '10%',
     }
 });
 

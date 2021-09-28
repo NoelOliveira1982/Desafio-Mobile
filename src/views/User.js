@@ -30,7 +30,11 @@ const User = (props) => {
         <SafeAreaView style={{ backgroundColor: 'black', height: HEIGHT_SCREEN, flex: 1 }}>
             <ToolBar isMainScreen={true} navigation={props.navigation} />
             <ScrollView>
-                {data.map(({ id, numero, created_at }) => <ItemCard name={numero} date={created_at} id={id} navigation={props.navigation} key={id} />)}
+                {data.map(({ id, numero, created_at }) =>
+                    <ItemCard items={[
+                        { title: 'Número', text: numero },
+                        { title: 'Data de Envio', text: created_at }
+                    ]} id={id} navigation={props.navigation} key={id} />)}
             </ScrollView>
         </SafeAreaView>
     );

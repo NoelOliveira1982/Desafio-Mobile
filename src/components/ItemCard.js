@@ -1,20 +1,22 @@
 import axios from 'axios';
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { TEXT_FONT } from '../Common';
 
 
 const ItemCard = (props) => {
 
     const goToDescription = () => {
-        axios.defaults.params = props.id;
-        props.navigation.navigate('Description');
+        if (props.id) {
+            axios.defaults.params = props.id;
+            props.navigation.navigate('Description');
+        }
     };
 
     return (
-        <TouchableOpacity onPress={goToDescription} >
+        <TouchableOpacity onPress={goToDescription}>
             <View style={Styles.card}>
-                <Text style={Styles.title}>Número: {props.name}</Text>
-                <Text style={Styles.title}>Data de Envio: {props.date}</Text>
+                {props.items.map(({ title, text }) => <Text style={Styles.title}>{title}: {text}</Text>)}
             </View>
         </TouchableOpacity>
     );
@@ -22,7 +24,6 @@ const ItemCard = (props) => {
 
 const Styles = StyleSheet.create({
     card: {
-        height: 100,
         width: '90%',
         marginLeft: 21,
         marginRight: 21,
@@ -37,7 +38,7 @@ const Styles = StyleSheet.create({
     },
     title: {
         fontFamily: 'Roboto Bold',
-        fontSize: 22,
+        fontSize: TEXT_FONT,
         color: 'black',
         paddingTop: 5,
         paddingHorizontal: 20,

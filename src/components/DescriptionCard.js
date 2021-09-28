@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, View, StyleSheet } from 'react-native';
+import { TEXT_FONT, TITLE_FONT } from "../Common";
 
 const DescriptionCard = ({ title, value }) => {
     return (
@@ -21,13 +22,13 @@ const Styles = StyleSheet.create({
     },
     title: {
         fontFamily: 'Roboto Bold',
-        fontSize: 24,
+        fontSize: TITLE_FONT,
         color: 'white',
         marginLeft: 15
     },
     value: {
         fontFamily: 'Roboto',
-        fontSize: 20,
+        fontSize: TEXT_FONT,
         color: 'white',
         margin: 10
     }
