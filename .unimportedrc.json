@@ -1,0 +1,11 @@
+{
+  "ignoreUnresolved": [],
+  "ignoreUnused": [
+    "@react-native-async-storage/async-storage",
+    "react",
+    "react-dom",
+    "react-native",
+    "react-native-gesture-handler"
+  ],
+  "ignoreUnimported": []
+}
