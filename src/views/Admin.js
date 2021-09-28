@@ -41,14 +41,14 @@ const Admin = (props) => {
                         onPress={() => setShow(!show)}>
                         <Text style={Styles.buttonText}>Filtrar Redações</Text>
                     </TouchableOpacity>
-                    {data.map(({ aluno, escola, numero, created_at }) =>
+                    {data.map(({ aluno, escola, numero, created_at, id }) =>
                         <ItemCard items={[
                             { title: 'Aluno', text: aluno.nome_completo },
                             { title: 'Escola', text: escola.nome },
                             { title: 'Turma', text: aluno.turma.nome },
                             { title: 'Número', text: numero },
                             { title: 'Data de inscrição', text: created_at }
-                        ]} key={id} navigation={props.navigation} id={null} />)}
+                        ]} key={id} navigation={props.navigation} />)}
                 </View>
                 {show && <DateTimePicker value={date}
                     onChange={(_, date) => { if (date) { setDate(date); } setShow(!show) }} mode='date' />}

@@ -1,13 +1,13 @@
 import axios from 'axios';
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import { TEXT_FONT, TEXT_FONT_SIZE, TITLE_FONT } from '../Common';
+import { TEXT_FONT_SIZE, TITLE_FONT } from '../Common';
 
 
 const ItemCard = (props) => {
 
     const goToDescription = () => {
-        if (props.id) {
+        if (axios.defaults.data) {
             axios.defaults.params = props.id;
             props.navigation.navigate('Description');
         }

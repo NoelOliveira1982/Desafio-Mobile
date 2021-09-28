@@ -19,8 +19,9 @@ const Login = (props) => {
             });
 
             axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.access_token}`;
-            axios.defaults.data = res.data.aluno_id;
+
             if (res.data.aluno_id) {
+                axios.defaults.data = res.data.aluno_id;
                 props.navigation.navigate('Home');
             } else {
                 props.navigation.navigate('Admin');
