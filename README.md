@@ -21,5 +21,3 @@ JavaScript
     "react-native-vector-icons": "^8.1.0",
     "react-navigation": "^4.4.4"
     
-## Bugs observados
-Durante o create o retorno dá Network Error, não resolvido ainda.
