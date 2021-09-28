@@ -4,7 +4,7 @@ import { SafeAreaView, Text, Image, StyleSheet, View, TextInput, TouchableOpacit
 import LinearGradient from "react-native-linear-gradient";
 
 import logo from '../../assets/images/logo-full.png';
-import { SERVER, showError, HEIGHT_SCREEN, TITLE_FONT, TEXT_FONT } from "../Common";
+import { SERVER, showError, HEIGHT_SCREEN, TITLE_FONT, TEXT_FONT, TITLE_FONT_SIZE, TEXT_FONT_SIZE } from "../Common";
 
 const Login = (props) => {
 
@@ -70,8 +70,8 @@ const Styles = StyleSheet.create({
         justifyContent: 'center',
     },
     label: {
-        fontFamily: 'Roboto Bold',
-        fontSize: TITLE_FONT,
+        fontFamily: TITLE_FONT,
+        fontSize: TITLE_FONT_SIZE,
         color: 'white'
     },
     input: {
@@ -83,8 +83,8 @@ const Styles = StyleSheet.create({
         borderRadius: 29,
         backgroundColor: 'white',
         width: '100%',
-        fontFamily: 'Roboto',
-        fontSize: TEXT_FONT,
+        fontFamily: TEXT_FONT,
+        fontSize: TEXT_FONT_SIZE,
         color: '#9A9696',
         paddingLeft: 20,
         paddingRight: 20,
@@ -99,8 +99,8 @@ const Styles = StyleSheet.create({
         marginTop: 46,
     },
     textAdmit: {
-        fontFamily: 'Roboto Bold',
-        fontSize: TEXT_FONT,
+        fontFamily: TITLE_FONT,
+        fontSize: TEXT_FONT_SIZE,
     }
 });
 

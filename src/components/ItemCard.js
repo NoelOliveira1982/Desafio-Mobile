@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import { TEXT_FONT } from '../Common';
+import { TEXT_FONT, TEXT_FONT_SIZE, TITLE_FONT } from '../Common';
 
 
 const ItemCard = (props) => {
@@ -37,8 +37,8 @@ const Styles = StyleSheet.create({
         alignItems: 'center'
     },
     title: {
-        fontFamily: 'Roboto Bold',
-        fontSize: TEXT_FONT,
+        fontFamily: TITLE_FONT,
+        fontSize: TEXT_FONT_SIZE,
         color: 'black',
         paddingTop: 5,
         paddingHorizontal: 20,

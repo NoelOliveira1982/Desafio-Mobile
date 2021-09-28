@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Linking, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import ToolBar from "../components/ToolBar";
 import DescriptionCard from "../components/DescriptionCard";
-import { HEIGHT_SCREEN, SERVER, showError, TEXT_FONT } from "../Common";
+import { HEIGHT_SCREEN, SERVER, showError, TEXT_FONT, TEXT_FONT_SIZE, TITLE_FONT } from "../Common";
 import axios from "axios";
 
 const Description = (props) => {
@@ -102,8 +102,8 @@ const Styles = StyleSheet.create({
         marginBottom: 20
     },
     text: {
-        fontFamily: 'Roboto Bold',
-        fontSize: TEXT_FONT,
+        fontFamily: TITLE_FONT,
+        fontSize: TEXT_FONT_SIZE,
         color: 'white'
     }
 });

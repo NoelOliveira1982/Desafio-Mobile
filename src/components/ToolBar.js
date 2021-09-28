@@ -3,7 +3,7 @@ import React from 'react';
 import { View, Text, StyleSheet, StatusBar } from 'react-native';
 import { Icon } from 'react-native-elements/dist/icons/Icon';
 import LinearGradient from 'react-native-linear-gradient';
-import { SERVER, showError, showSucess, SIZE_ICON, TITLE_FONT } from '../Common';
+import { SERVER, showError, showSucess, SIZE_ICON, TITLE_FONT, TITLE_FONT_SIZE } from '../Common';
 import DocumentPicker from 'react-native-document-picker';
 
 const ToolBar = ({ isMainScreen = false, isAdminScreen = false, navigation }) => {
@@ -70,8 +70,8 @@ const ToolBar = ({ isMainScreen = false, isAdminScreen = false, navigation }) =>
 
 const Styles = StyleSheet.create({
     textName: {
-        fontFamily: 'Roboto Bold',
-        fontSize: TITLE_FONT,
+        fontFamily: TITLE_FONT,
+        fontSize: TITLE_FONT_SIZE,
     },
     gradient: {
         justifyContent: 'space-around',

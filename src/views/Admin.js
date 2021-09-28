@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import ToolBar from "../components/ToolBar";
-import { HEIGHT_SCREEN, SERVER, showError, TEXT_FONT, TITLE_FONT } from "../Common";
+import { HEIGHT_SCREEN, SERVER, showError, TEXT_FONT, TEXT_FONT_SIZE, TITLE_FONT, TITLE_FONT_SIZE } from "../Common";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import axios from "axios";
 import ItemCard from "../components/ItemCard";
@@ -48,7 +48,7 @@ const Admin = (props) => {
                             { title: 'Turma', text: aluno.turma.nome },
                             { title: 'Número', text: numero },
                             { title: 'Data de inscrição', text: created_at }
-                        ]} key={id} navigation={props.navigation} />)}
+                        ]} key={id} navigation={props.navigation} id={null} />)}
                 </View>
                 {show && <DateTimePicker value={date}
                     onChange={(_, date) => { if (date) { setDate(date); } setShow(!show) }} mode='date' />}
@@ -70,13 +70,13 @@ const Styles = StyleSheet.create({
         marginTop: 20
     },
     title: {
-        fontFamily: 'Roboto Bold',
-        fontSize: TITLE_FONT,
+        fontFamily: TITLE_FONT,
+        fontSize: TITLE_FONT_SIZE,
         color: 'white'
     },
     buttonText: {
-        fontFamily: 'Roboto',
-        fontSize: TEXT_FONT,
+        fontFamily: TEXT_FONT,
+        fontSize: TEXT_FONT_SIZE,
         color: 'black',
     }
 });

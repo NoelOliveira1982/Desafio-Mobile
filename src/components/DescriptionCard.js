@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View, StyleSheet } from 'react-native';
-import { TEXT_FONT, TITLE_FONT } from "../Common";
+import { TEXT_FONT, TEXT_FONT_SIZE, TITLE_FONT, TITLE_FONT_SIZE } from "../Common";
 
 const DescriptionCard = ({ title, value }) => {
     return (
@@ -21,14 +21,14 @@ const Styles = StyleSheet.create({
         marginTop: 18
     },
     title: {
-        fontFamily: 'Roboto Bold',
-        fontSize: TITLE_FONT,
+        fontFamily: TITLE_FONT,
+        fontSize: TITLE_FONT_SIZE,
         color: 'white',
         marginLeft: 15
     },
     value: {
-        fontFamily: 'Roboto',
-        fontSize: TEXT_FONT,
+        fontFamily: TEXT_FONT,
+        fontSize: TEXT_FONT_SIZE,
         color: 'white',
         margin: 10
     }
